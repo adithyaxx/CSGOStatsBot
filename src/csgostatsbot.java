@@ -42,7 +42,7 @@ public class csgostatsbot extends TelegramLongPollingBot
 	        		//converting customurl to steamid
 	        		steamID = getSuccessCode(steamID, "steamid");
 	        	
-	        	String objString = "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=730&key=0B81863128C395DBBDB2FC2E320D1434&steamid=" + steamID;
+	        	String objString = "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=730&key=<APIKEY>&steamid=" + steamID;
 	            
 	        	switch (switchOption(objString))
 	        	{
@@ -109,7 +109,7 @@ public class csgostatsbot extends TelegramLongPollingBot
         		//converting customurl to steamid
         		steamID = getSuccessCode(steamID, "steamid");
         	
-        	String objString = "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=730&key=0B81863128C395DBBDB2FC2E320D1434&steamid=" + steamID;
+        	String objString = "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=730&key=<APIKEY>&steamid=" + steamID;
         	
         	if (switchOption(objString) != 0)
         	{
@@ -171,7 +171,7 @@ public class csgostatsbot extends TelegramLongPollingBot
     
     public String getSuccessCode(String str, String steamId)
     {
-    	String objString = "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=0B81863128C395DBBDB2FC2E320D1434&vanityurl=" + str;
+    	String objString = "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=<APIKEY>&vanityurl=" + str;
     	InputStream input = null;
 		
 		try {
@@ -192,7 +192,7 @@ public class csgostatsbot extends TelegramLongPollingBot
     
     public String getPersonaName(String str)
     {
-    	String objString = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=0B81863128C395DBBDB2FC2E320D1434&steamids=" + str;
+    	String objString = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=<APIKEY>&steamids=" + str;
     	InputStream input = null;
 		
 		try {
@@ -360,7 +360,7 @@ public class csgostatsbot extends TelegramLongPollingBot
         
         personaName = getPersonaName(steamID);
         
-        messageText = "*" + personaName + "'s CS:GO Stats:*\n\n• KD Ratio: " + kdRatio + "\n• Kills: " + totalKills + "\n• Time Played: " + totalTimeString + "h\n• Wins: " + winPercentage + "%\n• Accuracy: " + accuracy + "%\n• Headshots: " + hsPercentage + "%\n• MVP: " + totalMVPs + "\n• Best Weapon: " + wepArray[index];
+        messageText = "*" + personaName + "'s CS:GO Stats:*\n\nÂ• KD Ratio: " + kdRatio + "\nÂ• Kills: " + totalKills + "\nÂ• Time Played: " + totalTimeString + "h\nÂ• Wins: " + winPercentage + "%\nÂ• Accuracy: " + accuracy + "%\nÂ• Headshots: " + hsPercentage + "%\nÂ• MVP: " + totalMVPs + "\nÂ• Best Weapon: " + wepArray[index];
         
         return messageText;
     }
