@@ -1,1 +1,1 @@
-worker: java -jar target/CSGOStatsBot.jar
+worker: java -jar target/csgostatsbot-0.0.1-SNAPSHOT.jar
