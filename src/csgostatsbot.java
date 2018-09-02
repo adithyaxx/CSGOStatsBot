@@ -3,15 +3,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.telegram.telegrambots.api.methods.AnswerInlineQuery;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.api.objects.inlinequery.inputmessagecontent.InputTextMessageContent;
-import org.telegram.telegrambots.api.objects.inlinequery.result.InlineQueryResult;
 import org.telegram.telegrambots.api.objects.inlinequery.result.InlineQueryResultPhoto;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
@@ -42,7 +39,7 @@ public class csgostatsbot extends TelegramLongPollingBot
 	        		//converting customurl to steamid
 	        		steamID = getSuccessCode(steamID, "steamid");
 	        	
-	        	String objString = "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=730&key=0B81863128C395DBBDB2FC2E320D1434&steamid=" + steamID;
+	        	String objString = "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=730&key=" + BotConfig.API_KEY + "&steamid=" + steamID;
 	            
 	        	switch (switchOption(objString))
 	        	{
@@ -109,7 +106,7 @@ public class csgostatsbot extends TelegramLongPollingBot
         		//converting customurl to steamid
         		steamID = getSuccessCode(steamID, "steamid");
         	
-        	String objString = "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=730&key=0B81863128C395DBBDB2FC2E320D1434&steamid=" + steamID;
+        	String objString = "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=730&key=" + BotConfig.API_KEY + "&steamid=" + steamID;
         	
         	if (switchOption(objString) != 0)
         	{
@@ -150,7 +147,7 @@ public class csgostatsbot extends TelegramLongPollingBot
     @Override
     public String getBotToken() {
         // TODO
-        return "416084668:AAEkVYtRt8NmB_CdToFsR5ySV4lEb2NeXrE";
+        return BotConfig.BOT_TOKEN;
     }
     
     public boolean isGetBanner()
@@ -171,7 +168,7 @@ public class csgostatsbot extends TelegramLongPollingBot
     
     public String getSuccessCode(String str, String steamId)
     {
-    	String objString = "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=0B81863128C395DBBDB2FC2E320D1434&vanityurl=" + str;
+    	String objString = "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=" + BotConfig.API_KEY + "&vanityurl=" + str;
     	InputStream input = null;
 		
 		try {
@@ -192,7 +189,7 @@ public class csgostatsbot extends TelegramLongPollingBot
     
     public String getPersonaName(String str)
     {
-    	String objString = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=0B81863128C395DBBDB2FC2E320D1434&steamids=" + str;
+    	String objString = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=" + BotConfig.API_KEY + "&steamids=" + str;
     	InputStream input = null;
 		
 		try {
