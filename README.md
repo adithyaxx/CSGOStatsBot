@@ -8,7 +8,7 @@ A telegram bot to fetch CS:GO stats
 
 ## Getting Started
 [Add telegram bot](https://t.me/csgo_stats_bot)
-   
+
 ## Usage
 
 Commands:
