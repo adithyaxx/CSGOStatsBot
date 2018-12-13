@@ -4,8 +4,6 @@ import telepot
 from telepot.loop import MessageLoop
 import requests
 
-API_KEY = "446588EC38D8160DE6825B649A9BA781"
-TOKEN = "416084668:AAEkVYtRt8NmB_CdToFsR5ySV4lEb2NeXrE"
 API_KEY = os.environ['API_KEY']
 TOKEN = os.environ['TOKEN']
 
